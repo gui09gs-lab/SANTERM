@@ -42,7 +42,7 @@ body {
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 h1, h2, h3 { line-height: 1.1; margin: 0 0 .5em; font-stretch: 112%; letter-spacing: -.02em; }
-h1 { font-size: clamp(2.2rem, 5.4vw, 4rem); font-weight: 800; }
+h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-weight: 800; }
 h2 { font-size: clamp(1.8rem, 3.6vw, 2.75rem); font-weight: 800; }
 h3 { font-size: 1.2rem; font-weight: 700; }
 p { margin: 0 0 1em; }
@@ -136,7 +136,7 @@ p { margin: 0 0 1em; }
   mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 70%);
 }
-.hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
 .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--amber), var(--orange) 45%, var(--red)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead { font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: rgba(255, 255, 255, .78); max-width: 36em; }
 .lead strong { color: #fff; }
@@ -147,33 +147,34 @@ p { margin: 0 0 1em; }
 .hero__facts span { font-size: .85rem; color: rgba(255, 255, 255, .65); }
 
 .hero__art { margin: 0; position: relative; }
-.hero__stage { perspective: 1200px; }
-.el {
-  width: 112%; max-width: none; margin-left: -6%; overflow: visible;
-  transform: rotateX(14deg) rotateY(-24deg) rotateZ(-2deg);
-  transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+.hero__panel {
+  position: relative; overflow: hidden; height: clamp(420px, 44vw, 600px);
+  /* encosta o painel na borda direita da tela */
+  margin-right: calc((min(100vw - 32px, var(--wrap)) - 100vw) / 2);
+  border-radius: 28px 0 0 28px;
+  border: 1px solid rgba(255, 255, 255, .12); border-right: 0;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, .45), 0 0 120px rgba(255, 90, 30, .18);
 }
-.hero__art:hover .el { transform: rotateX(8deg) rotateY(-14deg) rotateZ(-1deg); }
-.el-hot { opacity: 0; animation: heatup 3.2s cubic-bezier(.4, 0, .2, 1) .5s forwards, breathe 4.5s ease-in-out 3.7s infinite; }
-.el-glow, .el-floor { opacity: 0; animation: heatup 3.6s cubic-bezier(.4, 0, .2, 1) .9s forwards, breathe 4.5s ease-in-out 4.5s infinite; }
-@keyframes heatup { to { opacity: 1; } }
-@keyframes breathe { 0%, 100% { opacity: 1; } 50% { opacity: .78; } }
-.embers circle { opacity: 0; transform-box: fill-box; animation: ember 5s linear infinite; }
-.embers circle:nth-child(2) { animation-delay: 4s; animation-duration: 6s; }
-.embers circle:nth-child(3) { animation-delay: 4.8s; }
-.embers circle:nth-child(4) { animation-delay: 5.5s; animation-duration: 6.5s; }
-.embers circle:nth-child(5) { animation-delay: 6.3s; }
-.embers circle:nth-child(6) { animation-delay: 7s; animation-duration: 5.5s; }
-.embers circle:nth-child(7) { animation-delay: 7.6s; }
-.embers circle:nth-child(8) { animation-delay: 8.4s; animation-duration: 6s; }
-.embers circle:nth-child(1) { animation-delay: 3.4s; }
-@keyframes ember {
-  0% { opacity: 0; transform: translate(0, 0); }
-  15% { opacity: .9; }
-  100% { opacity: 0; transform: translate(14px, -90px); }
+.hero__panel img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%;
+  animation: kenburns 18s ease-out both;
 }
+@keyframes kenburns { from { transform: scale(1.1); } to { transform: scale(1); } }
+.hero__panel::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(10, 22, 51, .55), transparent 30%),
+    linear-gradient(0deg, rgba(6, 14, 34, .55), transparent 35%);
+}
+/* pulsação do brilho das resistências no visor */
+.hero__heat {
+  position: absolute; left: 38%; top: 30%; width: 34%; height: 42%; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255, 90, 40, .55), rgba(255, 60, 20, 0));
+  mix-blend-mode: screen; animation: heatpulse 3.6s ease-in-out infinite;
+}
+@keyframes heatpulse { 0%, 100% { opacity: .25; } 50% { opacity: .75; } }
 .hero__tag {
-  position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%);
+  position: absolute; left: 24px; bottom: 22px;
   display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
   padding: 8px 14px; border-radius: 999px; font-size: .78rem; font-weight: 600;
   background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14);
@@ -443,7 +444,9 @@ dialog::backdrop { background: rgba(6, 14, 34, .6); backdrop-filter: blur(4px); 
   .nav.open { transform: none; opacity: 1; visibility: visible; }
   .nav a { padding: 14px 8px; font-size: 1.05rem; border-bottom: 1px solid var(--line); border-radius: 0; color: var(--ink); }
   .hero__grid, .calc, .about, .contact { grid-template-columns: 1fr; gap: 40px; }
-  .hero__art { max-width: 460px; margin-inline: auto; width: 100%; }
+  .hero__art { width: 100%; }
+  .hero__panel { height: auto; aspect-ratio: 4 / 3; margin-right: 0; border-radius: 22px; border-right: 1px solid rgba(255, 255, 255, .12); }
+  .hero__heat { left: 34%; width: 38%; }
   .modal__body { grid-template-columns: 1fr; }
   .modal__img { border-right: 0; border-bottom: 1px solid var(--line); }
   .modal__info { padding: 24px; }
@@ -460,7 +463,7 @@ dialog::backdrop { background: rgba(6, 14, 34, .6); backdrop-filter: blur(4px); 
   .card__name { font-size: .98rem; }
   .card__cat { display: none; }
   .card__add { font-size: .8rem; padding: .5em .6em; }
-  .hero__tag { font-size: .7rem; white-space: normal; text-align: center; width: max-content; max-width: 100%; }
+  .hero__tag { font-size: .7rem; left: 12px; right: 12px; bottom: 12px; white-space: normal; justify-content: center; }
   .hero__facts { gap: 12px 24px; }
   .cta-band, .calc__form, .contact__form { padding: 22px; }
   .formula { font-size: .95rem; padding: 16px; }
@@ -471,6 +474,5 @@ dialog::backdrop { background: rgba(6, 14, 34, .6); backdrop-filter: blur(4px); 
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  .el-hot, .el-glow, .el-floor { opacity: 1; }
   .reveal { opacity: 1; transform: none; }
 }

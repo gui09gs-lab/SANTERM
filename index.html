@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/hero-tanque.webp" imagesrcset="assets/img/hero-tanque-900.webp 900w, assets/img/hero-tanque.webp 1408w" imagesizes="(max-width: 880px) 100vw, 60vw">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script type="application/ld+json">
@@ -93,88 +94,13 @@
         </div>
 
         <figure class="hero__art">
-          <div class="hero__stage">
-          <svg viewBox="0 0 640 480" class="el" role="img" aria-label="Ilustração de uma resistência elétrica tubular aquecendo">
-            <defs>
-              <linearGradient id="brassV" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0" stop-color="#f6dc95"/><stop offset=".35" stop-color="#d6a94b"/><stop offset=".7" stop-color="#9c7024"/><stop offset="1" stop-color="#5e4212"/>
-              </linearGradient>
-              <linearGradient id="steelV" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0" stop-color="#eef1f5"/><stop offset=".5" stop-color="#9aa4b4"/><stop offset="1" stop-color="#4a5262"/>
-              </linearGradient>
-              <linearGradient id="plate" x1="0" x2="1" y1="0" y2="0">
-                <stop offset="0" stop-color="#596273"/><stop offset=".35" stop-color="#c4ccd8"/><stop offset=".55" stop-color="#e9edf3"/><stop offset="1" stop-color="#7d8696"/>
-              </linearGradient>
-              <pattern id="thread" width="3" height="12" patternUnits="userSpaceOnUse">
-                <rect width="3" height="12" fill="#b88a35"/><path d="M0.5 0 L2 12" stroke="#5e4212" stroke-width="1.1"/>
-              </pattern>
-              <filter id="glow1" x="-40%" y="-60%" width="180%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
-              <filter id="glow2" x="-60%" y="-80%" width="220%" height="260%"><feGaussianBlur stdDeviation="38"/></filter>
-              <linearGradient id="fade" gradientUnits="userSpaceOnUse" x1="120" x2="150" y1="0" y2="0">
-                <stop offset="0" stop-color="#000"/><stop offset="1" stop-color="#fff"/>
-              </linearGradient>
-              <mask id="coldEnds" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="480"><rect width="640" height="480" fill="url(#fade)"/></mask>
-              <radialGradient id="floor" cx=".5" cy=".5" r=".5">
-                <stop offset="0" stop-color="#ff5a1f" stop-opacity=".55"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-          
-            <ellipse class="el-floor" cx="330" cy="455" rx="260" ry="22" fill="url(#floor)"/>
-          
-            <g class="el-glow" fill="none" stroke-linecap="round">
-              <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#ff3d00" stroke-width="110" filter="url(#glow2)" opacity=".22"/>
-              <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#ff6a1f" stroke-width="40" filter="url(#glow1)" opacity=".5"/>
-            </g>
-          
-            <g class="el-cold" fill="none" stroke-linecap="butt">
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#0b0e14" stroke-width="27" transform="translate(0 3)"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#161b23" stroke-width="26"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#3a4250" stroke-width="23"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#646e80" stroke-width="19"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#949eaf" stroke-width="14" transform="translate(0 -1)"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#c8cfda" stroke-width="9" transform="translate(0 -3)"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#f6f8fb" stroke-width="3.5" transform="translate(0 -4)"/>
-            </g>
-            <g class="el-hot" fill="none" stroke-linecap="butt" mask="url(#coldEnds)">
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#2a0501" stroke-width="26"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#651003" stroke-width="23"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#a8230a" stroke-width="19"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#de4513" stroke-width="14" transform="translate(0 -1)"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#ff8330" stroke-width="9" transform="translate(0 -3)"/>
-          <path d="M118 110 H500 A45 45 0 0 1 500 200 H190 A45 45 0 0 0 190 290 H500 A45 45 0 0 1 500 380 H118" stroke="#ffcf94" stroke-width="3.5" transform="translate(0 -4)"/>
-            </g>
-          
-            <g class="el-plate">
-              <rect x="98" y="58" width="22" height="374" rx="4" fill="url(#plate)" stroke="#2b313c" stroke-width="1"/>
-              <circle cx="110" cy="84" r="5" fill="#2b313c"/><circle cx="110" cy="84" r="2.2" fill="#8d96a5"/>
-              <circle cx="110" cy="406" r="5" fill="#2b313c"/><circle cx="110" cy="406" r="2.2" fill="#8d96a5"/>
-              <circle cx="110" cy="245" r="5" fill="#2b313c"/><circle cx="110" cy="245" r="2.2" fill="#8d96a5"/>
-            </g>
-            <g transform="translate(0 110)">
-            <rect x="44" y="-6" width="34" height="12" rx="2" fill="url(#thread)"/>
-            <rect x="44" y="-6" width="34" height="12" rx="2" fill="url(#brassV)" opacity=".55"/>
-            <rect x="54" y="-13" width="9" height="26" rx="1.5" fill="url(#brassV)" stroke="#6b4a17" stroke-width=".8"/>
-            <rect x="74" y="-16" width="4" height="32" rx="1" fill="url(#steelV)"/>
-            <path d="M78 -21 H100 V21 H78 Z" fill="url(#brassV)" stroke="#6b4a17" stroke-width=".8"/>
-            <path d="M78 -7 H100 M78 7 H100" stroke="#7a561b" stroke-width="1" opacity=".7"/>
-            <rect x="78" y="-21" width="22" height="5" fill="#fff3c9" opacity=".35"/>
-          </g>
-            <g transform="translate(0 380)">
-            <rect x="44" y="-6" width="34" height="12" rx="2" fill="url(#thread)"/>
-            <rect x="44" y="-6" width="34" height="12" rx="2" fill="url(#brassV)" opacity=".55"/>
-            <rect x="54" y="-13" width="9" height="26" rx="1.5" fill="url(#brassV)" stroke="#6b4a17" stroke-width=".8"/>
-            <rect x="74" y="-16" width="4" height="32" rx="1" fill="url(#steelV)"/>
-            <path d="M78 -21 H100 V21 H78 Z" fill="url(#brassV)" stroke="#6b4a17" stroke-width=".8"/>
-            <path d="M78 -7 H100 M78 7 H100" stroke="#7a561b" stroke-width="1" opacity=".7"/>
-            <rect x="78" y="-21" width="22" height="5" fill="#fff3c9" opacity=".35"/>
-          </g>
-          
-            <g class="embers" fill="#ffb347">
-              <circle cx="260" cy="120" r="2.2"/><circle cx="380" cy="200" r="1.6"/><circle cx="455" cy="290" r="2"/>
-              <circle cx="300" cy="380" r="1.5"/><circle cx="520" cy="150" r="1.8"/><circle cx="220" cy="300" r="1.4"/>
-              <circle cx="420" cy="110" r="1.6"/><circle cx="340" cy="290" r="2.1"/>
-            </g>
-          </svg>
+          <div class="hero__panel">
+            <img src="assets/img/hero-tanque.webp"
+                 srcset="assets/img/hero-tanque-900.webp 900w, assets/img/hero-tanque.webp 1408w"
+                 sizes="(max-width: 880px) 100vw, 60vw"
+                 alt="Tanque industrial de aço inox com resistências elétricas incandescentes vistas pelo visor"
+                 width="1408" height="768" fetchpriority="high">
+            <span class="hero__heat" aria-hidden="true"></span>
           </div>
           <figcaption class="hero__tag">
             <span class="dot"></span> Aço inox AISI-304L · 316L · cobre · PTFE · titânio
