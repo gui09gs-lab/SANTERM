@@ -156,7 +156,7 @@ p { margin: 0 0 1em; }
   box-shadow: 0 40px 80px rgba(0, 0, 0, .45), 0 0 120px rgba(255, 90, 30, .18);
 }
 .hero__panel img {
-  width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%;
+  width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%;
   animation: kenburns 18s ease-out both;
 }
 @keyframes kenburns { from { transform: scale(1.1); } to { transform: scale(1); } }
@@ -166,13 +166,6 @@ p { margin: 0 0 1em; }
     linear-gradient(90deg, rgba(10, 22, 51, .55), transparent 30%),
     linear-gradient(0deg, rgba(6, 14, 34, .55), transparent 35%);
 }
-/* pulsação do brilho das resistências no visor */
-.hero__heat {
-  position: absolute; left: 38%; top: 30%; width: 34%; height: 42%; border-radius: 50%; pointer-events: none;
-  background: radial-gradient(closest-side, rgba(255, 90, 40, .55), rgba(255, 60, 20, 0));
-  mix-blend-mode: screen; animation: heatpulse 3.6s ease-in-out infinite;
-}
-@keyframes heatpulse { 0%, 100% { opacity: .25; } 50% { opacity: .75; } }
 .hero__tag {
   position: absolute; left: 24px; bottom: 22px;
   display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
@@ -361,7 +354,10 @@ p { margin: 0 0 1em; }
 .footer__nav { display: flex; flex-wrap: wrap; gap: 20px; }
 .footer__nav a { text-decoration: none; }
 .footer__nav a:hover { color: var(--ink); }
-.footer__copy { margin: 0; }
+.footer__copy { margin: 0; text-align: right; }
+.footer__credits { font-size: .78rem; opacity: .8; }
+.footer__credits a { text-decoration: none; }
+.footer__credits a:hover { text-decoration: underline; }
 .logo--footer { height: 40px; width: auto; }
 
 /* ---------- WhatsApp flutuante ---------- */
@@ -446,7 +442,6 @@ dialog::backdrop { background: rgba(6, 14, 34, .6); backdrop-filter: blur(4px); 
   .hero__grid, .calc, .about, .contact { grid-template-columns: 1fr; gap: 40px; }
   .hero__art { width: 100%; }
   .hero__panel { height: auto; aspect-ratio: 4 / 3; margin-right: 0; border-radius: 22px; border-right: 1px solid rgba(255, 255, 255, .12); }
-  .hero__heat { left: 34%; width: 38%; }
   .modal__body { grid-template-columns: 1fr; }
   .modal__img { border-right: 0; border-bottom: 1px solid var(--line); }
   .modal__info { padding: 24px; }
