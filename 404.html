@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Página não encontrada | Santerm</title>
   <meta name="robots" content="noindex">
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=202611242102">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611242102">
   <style>
     body { min-height: 100dvh; display: grid; place-items: center; background: var(--navy-900); color: #fff; text-align: center; padding: 24px; }
     .big { font-size: clamp(5rem, 20vw, 10rem); font-weight: 900; font-stretch: 125%; line-height: 1; margin: 0;
@@ -22,15 +22,18 @@
     <p class="big">404</p>
     <h1>Essa página esfriou.</h1>
     <p>O endereço mudou ou não existe mais. O catálogo completo está na página inicial.</p>
-    <a class="btn btn--hot" href="/">Ir para o site</a>
+    <a class="btn btn--hot" href="./" id="home">Ir para o site</a>
   </main>
   <script>
     // Redireciona os endereços do site antigo (.asp) para a seção certa do site novo
     (function () {
       var map = { "index": "", "produtos": "#produtos", "produtos2": "#produtos", "empresa": "#sobre",
         "contato": "#contato", "info": "#calculadora", "tabela_corrosao": "#calculadora", "mapa": "#contato" };
+      // pasta base do site: "/" no domínio próprio ou "/SANTERM/" no GitHub Pages
+      var base = location.pathname.replace(/[^\/]*$/, "");
+      document.getElementById("home").href = base;
       var m = location.pathname.match(/\/([a-z0-9_]+)\.asp$/i);
-      if (m && map.hasOwnProperty(m[1].toLowerCase())) location.replace("/" + map[m[1].toLowerCase()]);
+      if (m && map.hasOwnProperty(m[1].toLowerCase())) location.replace(base + map[m[1].toLowerCase()]);
     })();
   </script>
 </body>
