@@ -271,7 +271,7 @@
   function observe(els) {
     els.forEach(function (el) { if (io) io.observe(el); else el.classList.add("in"); });
   }
-  $$(".section__head, .steps li, .materials, .calc__form, .about__badge, .about__copy, .faq__list details, .channels li, .contact__form")
+  $$(".section__head, .steps li, .materials, .calc__form, .about__media, .about__copy, .faq__list details, .channels li, .contact__form")
     .forEach(function (el) { el.classList.add("reveal"); });
   observe($$(".reveal"));
 
