@@ -22,6 +22,7 @@ Site estático (HTML + CSS + JavaScript puro), sem banco de dados e sem build: b
 | Textos das seções | `index.html` |
 | Cores e visual | variáveis no início de `assets/css/style.css` |
 | Fotos dos produtos | `assets/img/produtos/` (800×600, fundo branco, `.webp`) |
+| Logo (vetor, redesenhado fiel ao original) | `assets/img/logo-santerm.svg` |
 
 ## Ver no computador
 

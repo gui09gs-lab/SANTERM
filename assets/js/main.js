@@ -275,6 +275,12 @@
     .forEach(function (el) { el.classList.add("reveal"); });
   observe($$(".reveal"));
 
+  /* ===== Sombra no cabeçalho ao rolar ===== */
+  var topbar = $(".topbar");
+  var onScroll = function () { topbar.classList.toggle("scrolled", window.scrollY > 8); };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
   $("#ano").textContent = new Date().getFullYear();
   renderGrid();
   renderQuote();
