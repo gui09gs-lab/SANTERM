@@ -24,6 +24,10 @@ Site estático (HTML + CSS + JavaScript puro), sem banco de dados e sem build: b
 | Fotos dos produtos | `assets/img/produtos/` (800×600, fundo branco, `.webp`) |
 | Logo (vetor, redesenhado fiel ao original) | `assets/img/logo-santerm.svg` |
 
+## Depois de editar CSS ou JS
+
+Troque o número `?v=...` nos links de `style.css`, `produtos.js` e `main.js` em `index.html` (e de `style.css` em `404.html`). Assim os navegadores dos clientes baixam a versão nova em vez de usar a antiga guardada em cache.
+
 ## Ver no computador
 
 ```bash
