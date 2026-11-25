@@ -275,6 +275,17 @@
     .forEach(function (el) { el.classList.add("reveal"); });
   observe($$(".reveal"));
 
+  /* ===== Logo volta ao topo da página ===== */
+  $$("a.logo").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      menuBtn.setAttribute("aria-expanded", "false");
+      nav.classList.toggle("open", false);
+      if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+
   /* ===== Sombra no cabeçalho ao rolar ===== */
   var topbar = $(".topbar");
   var onScroll = function () { topbar.classList.toggle("scrolled", window.scrollY > 8); };
